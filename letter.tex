@@ -1,0 +1,60 @@
+\documentclass[fontsize=12pt, version=last]{scrlttr2}
+
+% Deutsches Encoding / Wörterbuch Packages
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\LoadLetterOption{DIN5008A} % DIN5008A/DIN5008B
+\LoadLetterOption{defaults} % absender.lco
+
+% Grafikpackage
+\usepackage{graphicx}
+
+% Dokument / Brief
+\begin{document}
+
+\begin{letter}{
+  % Empfänger
+  Empfänger GmbH\\
+  Empfänger Str. 100 \\
+  56789 Empfängerstadt
+}
+
+% Geschäfts- / Zeichenzeile
+\setkomavar{yourref}[\yourrefname]{RN/001122}
+\setkomavar{yourmail}[\yourmailname]{01.02.2020}
+\setkomavar{myref}[\myrefname]{MZ-009988}
+\setkomavar{customer}[\customername]{00-K 123}
+\setkomavar{invoice}[\invoicename]{RN 000-000-000}
+\setkomavar{place}{Musterstadt}
+\setkomavar{date}[\datename]{\today}
+
+% Titel und Betreff
+% \setkomavar{title}{Titel}
+\setkomavar{subject}{Betreffbetreff}
+
+\opening{Opening,}
+
+Text 
+
+\closing{Closing}
+
+% PS
+\ps PS: \dots
+
+% Anlagen
+\setkomavar*{enclseparator}{Anlage}
+\encl{%
+  Anlage 1\\
+  Anlage 2
+}
+
+% Verteiler
+\setkomavar*{ccseparator}{Kopie an}
+\cc{
+  Verteiler A\\
+  Verteiler B
+}
+
+\end{letter}
+\end{document}

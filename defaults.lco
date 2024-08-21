@@ -1,0 +1,54 @@
+\ProvidesFile{defaults.lco}
+
+%% Briefbogen / Briefkopf Optionen
+\KOMAoptions{
+  fromphone,                                                % Telefon
+  fromemail,                                                % Email
+  fromfax,                                                  % Faxnummer
+  fromurl,                                                  % URL
+  fromlogo,                                                 % Logo
+  subject=titled,                                           % Betrifft: in Betreffzeile
+  fromalign=false,                                          % Ausrichtung des Briefkopfes (disabled)
+  % backaddress=underlined
+}
+
+%% Encoding
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[ngerman]{babel}
+
+%% Absenderinformationen - Defaults
+\setkomavar{fromname}{Erika Muster}                         % Name
+\setkomavar{fromaddress}{Musterstr. 1\\ 12345 Musterstadt}  % Adresse
+\setkomavar{fromfax}{01234~56789}                           % Faxnummer
+\setkomavar{fromemail}{erika.muster@email.com}              % Email-Adresse
+\setkomavar{fromphone}{01234~56789}                         % Telefonnummer
+\setkomavar{fromurl}[Website:~]{www.muster.com}             % Website
+
+%% Absenderergänzungen setzen
+\setkomavar{location}{
+  \raggedright
+  \footnotesize{\\
+  \usekomavar{fromname}\\
+  % \usekomavar{fromaddress}\\
+  \usekomavar*{fromphone}\usekomavar{fromphone}\\
+  \usekomavar*{fromfax}\usekomavar{fromfax}\\
+  \usekomavar*{fromemail}\usekomavar{fromemail}\\
+  \usekomavar*{fromurl}\usekomavar{fromurl}
+  }
+}
+
+%% Branding / Logo
+% \setkomavar{fromlogo}{\includegraphics{logo.png}}
+
+%% Bankverbindungsvariable setzen, Fußzeile muss aber noch eingeschaltet werden.
+\setkomavar{frombank}{IBAN DE21~87654321~13456789\\
+bei der HansWurstBank\\
+BIC GRMLDEHD000}
+
+%% Signatur
+\setkomavar{signature}{
+  \usekomavar{fromname}\\
+  % Rolle/ Geschäftsführer
+}
+
+\renewcommand*{\raggedsignature}{\raggedright}
